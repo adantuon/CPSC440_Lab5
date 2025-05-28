@@ -38,7 +38,7 @@ int main() {
     create_pc_bitmap(&pc_bmp, display);
 
     al_set_target_bitmap(al_get_backbuffer(display));
-    al_clear_to_color(al_map_rgb(0, 0, 0));
+    al_clear_to_color(al_map_rgb(255, 255, 255));
     al_flip_display();
 
     while (!exit) {
@@ -54,7 +54,7 @@ int main() {
         }
 
         
-        al_clear_to_color(al_map_rgb(0, 0, 0));
+        al_clear_to_color(al_map_rgb(255, 255, 255));
     }
 
     al_destroy_bitmap(pc_bmp);
@@ -74,7 +74,42 @@ void create_pc_bitmap(ALLEGRO_BITMAP *pc_bmp[], ALLEGRO_DISPLAY *display) {
     }
 
     al_set_target_bitmap(*pc_bmp);
-    al_clear_to_color(al_map_rgb(0, 0, 0));
+    al_clear_to_color(al_map_rgb(255, 255, 255));
 
-    al_draw_filled_circle(32, 32, 10, al_map_rgb(255, 255, 255));
+    /*
+    Note to self
+    From GIMP Coords:
+    Everything is one to the right
+    Vertical lines: start one to the right (add 1) and add one down (add 1)
+    Horizontal lines: start one down (add 1) and add one to the right (add 1)
+    */
+
+    //Palette
+    ALLEGRO_COLOR black = al_map_rgb(0, 0, 0);
+    ALLEGRO_COLOR arcaneBlue = al_map_rgb(51, 164, 252);
+    ALLEGRO_COLOR steel = al_map_rgb(113, 121, 126);
+    ALLEGRO_COLOR wood = al_map_rgb(79, 32, 15);
+
+    //Spear
+    //SpearHead
+    al_draw_line(51, 1, 51, 4, black, 1);
+    al_draw_line(50, 4, 50, 10, black, 1);
+    al_draw_line(52, 4, 52, 10, black, 1);
+    al_draw_line(49, 10, 49, 13, black, 1);
+    al_draw_line(53, 10, 53, 13, black, 1);
+    al_draw_line(49, 14, 52, 14, black, 1);
+    al_draw_line(51, 4, 51, 7, arcaneBlue, 1);
+    al_draw_line(50, 10, 50, 12, arcaneBlue, 1);
+    al_draw_line(52, 10, 52, 12, arcaneBlue, 1);
+    al_draw_line(51, 7, 51, 12, steel, 1);
+    al_draw_line(49, 13, 52, 13, steel, 1);
+
+    //Spear Haft
+    al_draw_line(50, 14, 49, 58, black, 1);
+    al_draw_line(52, 14, 51, 58, black, 1);
+    al_draw_line(51, 14, 50, 58, wood, 1);
+    al_draw_line(49, 59, 52, 59, black, 1);
+    al_draw_line(48, 60, 53, 60, black, 1);
+    al_draw_line(49, 60, 52, 60, arcaneBlue, 1);
+    al_draw_line(49, 61, 52, 61, black, 1);
 }
