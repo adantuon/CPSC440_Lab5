@@ -56,6 +56,14 @@ int main() {
             exit = true;
         }
 
+        if (event.type == ALLEGRO_EVENT_KEY_DOWN) {
+            switch (event.keyboard.keycode) {
+                case ALLEGRO_KEY_ESCAPE:
+                    exit = true;
+                    break;
+            }
+        }
+
         
         al_clear_to_color(al_map_rgb(255, 255, 255));
     }
