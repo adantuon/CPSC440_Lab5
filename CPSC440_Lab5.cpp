@@ -44,7 +44,10 @@ int main() {
     while (!exit) {
         ALLEGRO_EVENT event;
 
-        al_draw_bitmap(pc_bmp, width / 2, height / 2, 0);
+        al_draw_bitmap(pc_bmp, width / 2 - 32, 24, 0);
+        al_draw_bitmap(pc_bmp, width / 2 - 32, 144, ALLEGRO_FLIP_VERTICAL);
+        al_draw_rotated_bitmap(pc_bmp, 0, 64, width / 2 - 32, 264, ALLEGRO_PI / 2, 0);
+        al_draw_rotated_bitmap(pc_bmp, 64, 0,  width / 2 - 32, 384, 3 * ALLEGRO_PI / 2,  0);
         al_flip_display();
 
         al_wait_for_event(eventQueue, &event);
