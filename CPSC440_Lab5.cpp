@@ -82,6 +82,9 @@ void create_pc_bitmap(ALLEGRO_BITMAP *pc_bmp[], ALLEGRO_DISPLAY *display) {
     Everything is one to the right
     Vertical lines: start one to the right (add 1) and add one down (add 1)
     Horizontal lines: start one down (add 1) and add one to the right (add 1)
+    Diagonal (Left to Right):
+    Up: start point down one & end point right one
+    Down: start point same as GIMP & end point down one and right one
     Pixels: down one (add 1) and to the right one (add 1)
     Filled Rectangle: Endpoint is down one (add 1) and to the right one (add 1)
     */
@@ -253,8 +256,107 @@ void create_pc_bitmap(ALLEGRO_BITMAP *pc_bmp[], ALLEGRO_DISPLAY *display) {
     al_draw_pixel(53, 42, steelDark);
     al_draw_pixel(53, 44, steelDark);
     al_draw_pixel(53, 46, steelDark);
+    al_draw_pixel(52, 39, steelDark);
     al_draw_pixel(52, 41, steelDark);
     al_draw_pixel(52, 43, steelDark);
     al_draw_pixel(52, 45, steelDark);
     al_draw_pixel(52, 47, steelDark);
+
+    //Helmet (Head)
+    //The Allegro circle doesn't match the GIMP circle so I'm making in
+    al_draw_filled_rectangle(18, 35, 46, 45, steel);
+    al_draw_filled_rectangle(27, 26, 37, 54, steel);
+    al_draw_filled_rectangle(21, 29, 43, 51, steel);
+    al_draw_filled_rectangle(19, 31, 21, 49, steel);
+    al_draw_filled_rectangle(43, 31, 45, 49, steel);
+    al_draw_filled_rectangle(23, 51, 41, 53, steel);
+    al_draw_filled_rectangle(23, 27, 41, 29, steel);
+    
+    al_draw_line(27, 25, 37, 25, black, 1);
+    al_draw_line(25, 26, 27, 26, black, 1);
+    al_draw_line(23, 27, 25, 27, black, 1);
+    al_draw_line(21, 28, 23, 28, black, 1);
+    al_draw_line(21, 53, 23, 53, black, 1);
+    al_draw_line(23, 54, 25, 54, black, 1);
+    al_draw_line(25, 55, 27, 55, black, 1);
+    al_draw_line(27, 56, 37, 56, black, 1);
+    al_draw_line(37, 55, 39, 55, black, 1);
+    al_draw_line(39, 54, 41, 54, black, 1);
+    al_draw_line(41, 53, 43, 53, black, 1);
+    al_draw_line(41, 28, 43, 28, black, 1);
+    al_draw_line(39, 27, 41, 27, black, 1);
+    al_draw_line(37, 26, 39, 26, black, 1);
+    al_draw_line(20, 29, 20, 31, black, 1);
+    al_draw_line(19, 31, 19, 33, black, 1);
+    al_draw_line(18, 33, 18, 35, black, 1);
+    al_draw_line(17, 35, 17, 45, black, 1);
+    al_draw_line(18, 45, 18, 47, black, 1);
+    al_draw_line(19, 47, 19, 49, black, 1);
+    al_draw_line(20, 49, 20, 51, black, 1);
+    al_draw_line(45, 29, 45, 31, black, 1);
+    al_draw_line(46, 31, 46, 33, black, 1);
+    al_draw_line(47, 33, 47, 35, black, 1);
+    al_draw_line(48, 35, 48, 45, black, 1);
+    al_draw_line(47, 45, 47, 47, black, 1);
+    al_draw_line(46, 47, 46, 49, black, 1);
+    al_draw_line(45, 49, 45, 51, black, 1);
+
+    al_draw_pixel(21, 29, black);
+    al_draw_pixel(44, 29, black);
+    al_draw_pixel(21, 52, black);
+    al_draw_pixel(44, 52, black);
+
+    al_draw_line(27, 26, 37, 26, steelDark, 1);
+    al_draw_line(25, 27, 27, 27, steelDark, 1);
+    al_draw_line(23, 28, 25, 28, steelDark, 1);
+    al_draw_line(21, 29, 23, 29, steelDark, 1);
+    al_draw_line(41, 29, 43, 29, steelDark, 1);
+    al_draw_line(39, 28, 41, 28, steelDark, 1);
+    al_draw_line(37, 27, 39, 27, steelDark, 1);
+
+    al_draw_line(21, 52, 23, 52, steelDark, 1);
+    al_draw_line(23, 53, 25, 53, steelDark, 1);
+    al_draw_line(25, 54, 27, 54, steelDark, 1);
+    al_draw_line(27, 55, 37, 55, steelDark, 1);
+    al_draw_line(37, 54, 39, 54, steelDark, 1);
+    al_draw_line(39, 53, 41, 53, steelDark, 1);
+    al_draw_line(41, 52, 43, 52, steelDark, 1);
+
+    
+    al_draw_line(21, 29, 21, 31, steelDark, 1);
+    al_draw_line(20, 31, 20, 33, steelDark, 1);
+    al_draw_line(19, 33, 19, 35, steelDark, 1);
+    al_draw_line(18, 35, 18, 45, steelDark, 1);
+    al_draw_line(19, 45, 19, 47, steelDark, 1);
+    al_draw_line(20, 47, 20, 49, steelDark, 1);
+    al_draw_line(21, 49, 21, 51, steelDark, 1);
+
+    al_draw_line(44, 29, 44, 31, steelDark, 1);
+    al_draw_line(45, 31, 45, 33, steelDark, 1);
+    al_draw_line(46, 33, 46, 35, steelDark, 1);
+    al_draw_line(47, 35, 47, 45, steelDark, 1);
+    al_draw_line(46, 45, 46, 47, steelDark, 1);
+    al_draw_line(45, 47, 45, 49, steelDark, 1);
+    al_draw_line(44, 49, 44, 51, steelDark, 1);
+
+    al_draw_line(27, 30, 37, 30, black, 1);
+    al_draw_line(27, 51, 37, 51, black, 1);
+    al_draw_line(22, 35, 22, 45, black, 1);
+    al_draw_line(43, 35, 43, 45, black, 1);
+
+    
+    al_draw_line(22, 35, 27, 30, black, 1);
+    al_draw_line(37, 30, 42, 35, black, 1);
+    al_draw_line(22, 45, 27, 50, black, 1);
+    al_draw_line(37, 50, 42, 45, black, 1);
+
+    al_draw_line(27, 31, 37, 31, steelDark, 1);
+    al_draw_line(27, 50, 37, 50, steelDark, 1);
+    al_draw_line(23, 35, 23, 45, steelDark, 1);
+    al_draw_line(42, 35, 42, 45, steelDark, 1);
+
+    al_draw_line(23, 35, 27, 31, steelDark, 1);
+    al_draw_line(37, 31, 41, 35, steelDark, 1);
+    al_draw_line(23, 45, 27, 49, steelDark, 1);
+    al_draw_line(37, 49, 41, 45, steelDark, 1);
 }
